@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Submit Data</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Submitted Data</h2>
+    <ul>
+        {% for item in data %}
+            <li>{{ item }}</li>
+        {% empty %}
+            <li>No data available.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
